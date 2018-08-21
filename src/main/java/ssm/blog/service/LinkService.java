@@ -6,26 +6,26 @@ import java.util.Map;
 import ssm.blog.entity.Link;
 
 /**
- * @Description 友情链接Service接口
+ * @Description 鍙嬫儏閾炬帴Service鎺ュ彛
  * @author Ni Shengwu
  *
  */
 public interface LinkService {
 
-	// 获取友情链接
+	// 鑾峰彇鍙嬫儏閾炬帴
 	public List<Link> getLinkData();
 
 	public List<Link> listLinkData(Map<String, Object> map);
 
-	// 获取总记录数
+	// 鑾峰彇鎬昏褰曟暟
 	public Long getTotal(Map<String, Object> map);
 
-	// 添加友情链接
+	// 娣诲姞鍙嬫儏閾炬帴
 	public Integer addLink(Link link);
 
-	// 更新友情链接
+	// 鏇存柊鍙嬫儏閾炬帴
 	public Integer updateLink(Link link);
 
-	// 删除友情链接
+	// 鍒犻櫎鍙嬫儏閾炬帴
 	public Integer deleteLink(Integer id);
 }

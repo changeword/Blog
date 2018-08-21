@@ -3,19 +3,19 @@ package ssm.blog.entity;
 import java.util.Date;
 
 /**
- * @Description ÆÀÂÛÊµÌå
+ * @Description è¯„è®ºå®ä½“
  * @author Ni Shengwu
  *
  */
 public class Comment {
 
 	private Integer id;
-	private String userIp; //ÆÀÂÛÓÃ»§µÄip
-	private String content; //ÆÀÂÛÄÚÈİ
-	private Date commentDate; //ÆÀÂÛÈÕÆÚ
-	private Integer state; //ÉóºË×´Ì¬£¬0´ıÉóºË 1ÉóºËÍ¨¹ı 2Î´Í¨¹ı
-	private Blog blog; //¹ØÁªµÄ²©¿Í
-	
+	private String userIp; //è¯„è®ºç”¨æˆ·çš„ip
+	private String content; //è¯„è®ºå†…å®¹
+	private Date commentDate; //è¯„è®ºæ—¥æœŸ
+	private Integer state; //å®¡æ ¸çŠ¶æ€ï¼Œ0å¾…å®¡æ ¸ 1å®¡æ ¸é€šè¿‡ 2æœªé€šè¿‡
+	private Blog blog; //å…³è”çš„åšå®¢
+
 	public Integer getId() {
 		return id;
 	}

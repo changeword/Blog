@@ -24,32 +24,32 @@ import ssm.blog.service.LinkService;
 public class InitBloggerData implements ServletContextListener, ApplicationContextAware {
 
 	private static ApplicationContext applicationContext;
-	
+
 	public void contextInitialized(ServletContextEvent sce) {
 		System.out.println(applicationContext);
-		//�Ȼ�ȡservlet������
+		//先获取servlet上下文
 		ServletContext application = sce.getServletContext();
-		
-		//����spring�������Ļ�ȡbloggerService���bean
+
+		//根据spring的上下文获取bloggerService这个bean
 		BloggerService bloggerService = (BloggerService) applicationContext.getBean("bloggerService");
-		//��ȡ������Ϣ
+		//获取博主信息
 		Blogger blogger = bloggerService.getBloggerData();
-		//��������Ҳ��ȡ���ˣ��Ƚ����У�����Ҳ����Ҫ��������԰�������յ�
-		//blogger.setPassword("lp12580");
-		//��������Ϣ����application����
+		//由于密码也获取到了，比较敏感，我们也不需要这个，所以把密码清空掉
+		//blogger.setPassword(null);
+		//将博主信息存入application域中
 		application.setAttribute("blogger", blogger);
-		
-		//ͬ�ϣ���ȡ����������Ϣ
+
+		//同上，获取友情链接信息
 		LinkService linkService = (LinkService) applicationContext.getBean("linkService");
-		List<Link> linkList = linkService.getLinkData(); 
+		List<Link> linkList = linkService.getLinkData();
 		application.setAttribute("linkList", linkList);
-		
-		//ͬ�ϣ���ȡ���������Ϣ
+
+		//同上，获取博客类别信息
 		BlogTypeService blogTypeService = (BlogTypeService) applicationContext.getBean("blogTypeService");
 		List<BlogType> blogTypeList = blogTypeService.getBlogTypeData();
 		application.setAttribute("blogTypeList", blogTypeList);
-		
-		//ͬ�ϣ���ȡ������Ϣ������ʱ������
+
+		//同上，获取博客信息，按照时间分类的
 		BlogService blogService = (BlogService) applicationContext.getBean("blogService");
 		List<Blog> blogTimeList = blogService.getBlogData();
 		application.setAttribute("blogTimeList", blogTimeList);
@@ -57,10 +57,10 @@ public class InitBloggerData implements ServletContextListener, ApplicationConte
 
 	public void contextDestroyed(ServletContextEvent sce) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	public void setApplicationContext(ApplicationContext applicationContext) 
+	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
 		InitBloggerData.applicationContext = applicationContext;
 	}

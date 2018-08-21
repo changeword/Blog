@@ -25,7 +25,7 @@ import ssm.blog.util.ResponseUtil;
 import ssm.blog.util.StringUtil;
 
 /**
- * @Description ¹ÜÀíÔ±²©¿ÍController²ã
+ * @Description ç®¡ç†å‘˜åšå®¢Controllerå±‚
  * @author Ni Shengwu
  *
  */
@@ -39,16 +39,16 @@ public class BlogAdminController {
 	private CommentService commentService;
 	
 	private BlogIndex blogIndex = new BlogIndex();
-	
-	//Ìí¼ÓºÍ¸üĞÂ²©¿Í
+
+	//æ·»åŠ å’Œæ›´æ–°åšå®¢
 	@RequestMapping("/save")
 	public String save(Blog blog, HttpServletResponse response) throws Exception {
 		
-		int resultTotal = 0; //½ÓÊÕ·µ»Ø½á¹û¼ÇÂ¼Êı
-		if(blog.getId() == null) { //ËµÃ÷ÊÇµÚÒ»´Î²åÈë
+		int resultTotal = 0; //æ¥æ”¶è¿”å›ç»“æœè®°å½•æ•°
+		if(blog.getId() == null) { //è¯´æ˜æ˜¯ç¬¬ä¸€æ¬¡æ’å…¥
 			resultTotal = blogService.addBlog(blog);
-			blogIndex.addIndex(blog); //Ìí¼Ó²©¿ÍµÄË÷Òı
-		} else { //ÓĞid±íÊ¾ĞŞ¸Ä
+			blogIndex.addIndex(blog); //æ·»åŠ åšå®¢çš„ç´¢å¼•
+		} else { //æœ‰idè¡¨ç¤ºä¿®æ”¹
 			resultTotal = blogService.update(blog);
 			blogIndex.updateIndex(blog);
 		}
@@ -62,8 +62,8 @@ public class BlogAdminController {
 		ResponseUtil.write(response, result);
 		return null;
 	}
-	
-	//ºóÌ¨·ÖÒ³²éÑ¯²©¿ÍĞÅÏ¢
+
+	//åå°åˆ†é¡µæŸ¥è¯¢åšå®¢ä¿¡æ¯
 	@RequestMapping("/listBlog")
 	public String listBlog(
 			@RequestParam(value="page", required=false)String page,
@@ -73,7 +73,7 @@ public class BlogAdminController {
 		
 		PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("title", StringUtil.formatLike(s_blog.getTitle())); //Ä£ºı²éÑ¯
+		map.put("title", StringUtil.formatLike(s_blog.getTitle())); //æ¨¡ç³ŠæŸ¥è¯¢
 		map.put("start", pageBean.getStart());
 		map.put("pageSize", pageBean.getPageSize());
 		List<Blog> blogList = blogService.listBlog(map);
@@ -88,8 +88,8 @@ public class BlogAdminController {
 		ResponseUtil.write(response, result);
 		return null;
 	}
-	
-	// ²©¿ÍĞÅÏ¢É¾³ı
+
+	// åšå®¢ä¿¡æ¯åˆ é™¤
 	@RequestMapping("/delete")
 	public String deleteBlog(
 			@RequestParam(value="ids", required=false)String ids,
@@ -107,8 +107,8 @@ public class BlogAdminController {
 		ResponseUtil.write(response, result);
 		return null;
 	}
-	
-	//Í¨¹ıid»ñÈ¡²©¿ÍÊµÌå
+
+	//é€šè¿‡idè·å–åšå®¢å®ä½“
 	@RequestMapping("/findById")
 	public String findById(
 			@RequestParam(value="id", required=false)String id,

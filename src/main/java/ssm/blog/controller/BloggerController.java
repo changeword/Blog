@@ -17,7 +17,7 @@ import ssm.blog.service.BloggerService;
 import ssm.blog.util.CryptographyUtil;
 
 /**
- * @Description ²©Ö÷Controller²ã£¬Ç°Ì¨²¿·Ö£¬²»ĞèÒªÈÏÖ¤
+ * @Description åšä¸»Controllerå±‚ï¼Œå‰å°éƒ¨åˆ†ï¼Œä¸éœ€è¦è®¤è¯
  * @author Ni Shengwu
  *
  */
@@ -31,17 +31,18 @@ public class BloggerController {
 	@RequestMapping("/login")
 	public String login(Blogger blogger, HttpServletRequest request) {
 		
-		Subject subject = SecurityUtils.getSubject(); //»ñÈ¡µ±Ç°µÇÂ½µÄÖ÷Ìå
-		String newPassword = CryptographyUtil.md5(blogger.getPassword(), "javacoder");//½«ÃÜÂëÊ¹ÓÃmd5¼ÓÃÜ
-		//½«ÓÃ»§ĞÅÏ¢·â×°µ½tokenÖĞ
+		Subject subject = SecurityUtils.getSubject(); //è·å–å½“å‰ç™»é™†çš„ä¸»ä½“
+		String newPassword = CryptographyUtil.md5(blogger.getPassword(), "javacoder");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½md5ï¿½ï¿½ï¿½ï¿½
+		//å°†å¯†ç ä½¿ç”¨md5åŠ å¯†
+		//å°†ç”¨æˆ·ä¿¡æ¯å°è£…åˆ°tokenä¸­
 		UsernamePasswordToken token = new UsernamePasswordToken(blogger.getUsername(), newPassword);
 		try {
-			subject.login(token); //»áµ÷ÓÃMyRealmÖĞµÄdoGetAuthenticationInfo·½·¨½øĞĞÉí·İÈÏÖ¤
+			subject.login(token);//ä¼šè°ƒç”¨MyRealmä¸­çš„doGetAuthenticationInfoæ–¹æ³•è¿›è¡Œèº«ä»½è®¤è¯
 			return "redirect:/admin/main.jsp";
 		} catch (AuthenticationException e) {
 			e.printStackTrace();
 			request.setAttribute("bloger", blogger);
-			request.setAttribute("errorInfo", "ÓÃ»§Ãû»òÃÜÂë´íÎó");
+			request.setAttribute("errorInfo", "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
 			return "login";
 		} 
 
@@ -53,7 +54,7 @@ public class BloggerController {
 		Blogger blogger = bloggerService.getBloggerData();
 		modelAndView.addObject("blogger", blogger);
 		modelAndView.addObject("commonPage", "foreground/blogger/bloggerInfo.jsp");
-		modelAndView.addObject("title", "¹ØÓÚ²©Ö÷ - ÄßÉıÎäµÄ²©¿Í");
+		modelAndView.addObject("title", "å…³äºåšä¸» - ææ”€çš„åšå®¢");
 		modelAndView.setViewName("mainTemp");
 		return modelAndView;
 	}
@@ -61,8 +62,8 @@ public class BloggerController {
 	@RequestMapping("/myalbum")
 	public ModelAndView myAlbum() {
 		ModelAndView modelAndView = new ModelAndView();
-		//ÒªĞ´Ò»¸öÏà²áµÄservice»ñÈ¡Ïà²á
-		//Òª½¨Ò»¸öÏà²á±í
+		//è¦å†™ä¸€ä¸ªç›¸å†Œçš„serviceè·å–ç›¸å†Œ
+		//è¦å»ºä¸€ä¸ªç›¸å†Œè¡¨
 		//....
 		modelAndView.addObject("commonPage", "foreground/blogger/myAlbum.jsp");
 		modelAndView.setViewName("mainTemp");

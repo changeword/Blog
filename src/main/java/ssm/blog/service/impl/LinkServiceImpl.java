@@ -12,7 +12,7 @@ import ssm.blog.entity.Link;
 import ssm.blog.service.LinkService;
 
 /**
- * @Description ÓÑÇéÁ´½ÓServiceÊµÏÖÀà
+ * @Description å‹æƒ…é“¾æ¥Serviceå®ç°ç±»
  * @author Ni Shengwu
  *
  */
@@ -21,12 +21,12 @@ public class LinkServiceImpl implements LinkService {
 
 	@Resource
 	private LinkDao linkDao;
-	
+
 	public List<Link> getLinkData() {
 		return linkDao.getLinkData();
-	}	
-	
-	public List<Link> listLinkData(Map<String, Object> map) {		
+	}
+
+	public List<Link> listLinkData(Map<String, Object> map) {
 		return linkDao.listLinkData(map);
 	}
 

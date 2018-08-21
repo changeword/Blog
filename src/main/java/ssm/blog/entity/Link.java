@@ -1,17 +1,17 @@
 package ssm.blog.entity;
 
 /**
- * @Description ÓÑÇéÁ´½ÓÊµÌå
+ * @Description å‹æƒ…é“¾æ¥å®ä½“
  * @author Ni Shengwu
  *
  */
 public class Link {
-	
+
 	private Integer id;
-	private String linkname; //Á´½ÓÃû³Æ
-	private String linkurl; //Á´½ÓµØÖ·
-	private Integer orderNum; //Á´½ÓÅÅĞòµÄĞòºÅ
-	
+	private String linkname; //é“¾æ¥åç§°
+	private String linkurl; //é“¾æ¥åœ°å€
+	private Integer orderNum; //é“¾æ¥æ’åºçš„åºå·
+
 	public Integer getId() {
 		return id;
 	}
@@ -37,5 +37,5 @@ public class Link {
 		this.orderNum = orderNum;
 	}
 
-	
+
 }

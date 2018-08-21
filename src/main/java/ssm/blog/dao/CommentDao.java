@@ -6,27 +6,27 @@ import java.util.Map;
 import ssm.blog.entity.Comment;
 
 /**
- * @Description 评论dao接口
+ * @Description 璇勮dao鎺ュ彛
  * @author Ni Shengwu
  *
  */
 public interface CommentDao {
 
-	// 获取评论信息
+	// 鑾峰彇璇勮淇℃伅
 	public List<Comment> getCommentData(Map<String, Object> map);
 
-	// 添加评论
+	// 娣诲姞璇勮
 	public int addComment(Comment comment);
 
-	// 获取总记录数
+	// 鑾峰彇鎬昏褰曟暟
 	public Long getTotal(Map<String, Object> map);
 
-	// 修改评论信息
+	// 淇敼璇勮淇℃伅
 	public Integer update(Comment comment);
 
-	// 删除评论信息
+	// 鍒犻櫎璇勮淇℃伅
 	public Integer deleteComment(Integer id);
-	
-	// 根据博客id删除评论信息，用于删除某篇博客前，先删掉该博客的评论，因为有外键
+
+	// 鏍规嵁鍗氬id鍒犻櫎璇勮淇℃伅锛岀敤浜庡垹闄ゆ煇绡囧崥瀹㈠墠锛屽厛鍒犳帀璇ュ崥瀹㈢殑璇勮锛屽洜涓烘湁澶栭敭
 	public Integer deleteCommentByBlogId(Integer blogId);
 }

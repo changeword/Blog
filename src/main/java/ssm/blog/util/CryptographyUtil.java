@@ -3,28 +3,28 @@ package ssm.blog.util;
 import org.apache.shiro.crypto.hash.Md5Hash;
 
 /**
- * md5¼ÓÃÜ¹¤¾ßÀà
+ * md5åŠ å¯†å·¥å…·ç±»
  * @author Administrator
  *
  */
 public class CryptographyUtil {
 
-	
+
 	/**
-	 * @Description Ê¹ÓÃShiroÖĞµÄmd5¼ÓÃÜ
+	 * @Description ä½¿ç”¨Shiroä¸­çš„md5åŠ å¯†
 	 * @param str
 	 * @param salt
 	 * @return
 	 */
 	public static String md5(String str,String salt){
-		//Md5HashÊÇShiroÖĞµÄÒ»¸ö·½·¨
+		//Md5Hashæ˜¯Shiroä¸­çš„ä¸€ä¸ªæ–¹æ³•
 		return new Md5Hash(str, salt).toString();
 	}
-	
-	//ÎÒ×Ô¼ºÉú³ÉÒ»ÏÂ²âÊÔÓÃµÄ
+
+	//æˆ‘è‡ªå·±ç”Ÿæˆä¸€ä¸‹æµ‹è¯•ç”¨çš„
 	public static void main(String[] args) {
 		String password="123456";
-		
-		System.out.println("Md5¼ÓÃÜ£º"+CryptographyUtil.md5(password, "javacoder"));
+
+		System.out.println("Md5åŠ å¯†ï¼š"+CryptographyUtil.md5(password, "javacoder"));
 	}
 }

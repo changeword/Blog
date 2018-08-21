@@ -23,7 +23,7 @@ import ssm.blog.util.PageUtil;
 import ssm.blog.util.StringUtil;
 
 /**
- * @Description ��ҳController
+ * @Description 登录首页
  * @author Ni Shengwu
  *
  */
@@ -60,7 +60,7 @@ public class IndexController {
 		map.put("typeId", typeId);
 		map.put("releaseDateStr", releaseDateStr);
 
-		// ��ȡ������Ϣ
+		//拼凑查询参数
 		List<Blog> blogList = blogService.listBlog(map);		
 
 		for(Blog blog : blogList) {

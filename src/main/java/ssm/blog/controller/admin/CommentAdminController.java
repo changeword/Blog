@@ -22,7 +22,7 @@ import ssm.blog.util.DateJsonValueProcessor;
 import ssm.blog.util.ResponseUtil;
 
 /**
- * @Description ¹ÜÀíÔ±ÆÀÂÛController²ã
+ * @Description ç®¡ç†å‘˜è¯„è®ºControllerå±‚
  * @author Ni Shengwu
  *
  */
@@ -33,7 +33,7 @@ public class CommentAdminController {
 	@Resource
 	private CommentService commentService;
 
-	// ºóÌ¨·ÖÒ³²éÑ¯ÆÀÂÛĞÅÏ¢
+	// åå°åˆ†é¡µæŸ¥è¯¢è¯„è®ºä¿¡æ¯
 	@RequestMapping("/listComment")
 	public String listBlog(
 			@RequestParam(value = "page", required = false) String page,
@@ -61,7 +61,7 @@ public class CommentAdminController {
 		return null;
 	}
 
-	// ÆÀÂÛÉóºË
+	// è¯„è®ºå®¡æ ¸
 	@RequestMapping("/review")
 	public String review(
 			@RequestParam(value = "ids", required = false) String ids,
@@ -81,7 +81,7 @@ public class CommentAdminController {
 		return null;
 	}
 
-	// ÆÀÂÛĞÅÏ¢É¾³ı
+	// è¯„è®ºä¿¡æ¯åˆ é™¤
 	@RequestMapping("/deleteComment")
 	public String deleteBlog(
 			@RequestParam(value = "ids", required = false) String ids,

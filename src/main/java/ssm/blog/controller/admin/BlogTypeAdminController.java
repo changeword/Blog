@@ -21,7 +21,7 @@ import ssm.blog.service.BlogTypeService;
 import ssm.blog.util.ResponseUtil;
 
 /**
- * @Description ¹ÜÀíÔ±²©¿ÍÀà±ğController²ã
+ * @Description ç®¡ç†å‘˜åšå®¢ç±»åˆ«Controllerå±‚
  * @author Ni Shengwu
  *
  */
@@ -34,7 +34,7 @@ public class BlogTypeAdminController {
 	@Resource
 	private BlogService blogService;
 
-	// ·ÖÒ³²éÑ¯²©¿ÍÀà±ğ
+	// åˆ†é¡µæŸ¥è¯¢åšå®¢ç±»åˆ«
 	@RequestMapping("/listBlogType")
 	public String listBlogType(
 			@RequestParam(value = "page", required = false) String page,
@@ -58,15 +58,15 @@ public class BlogTypeAdminController {
 		return null;
 	}
 
-	// Ìí¼ÓºÍ¸üĞÂ²©¿ÍÀà±ğ
+	// æ·»åŠ å’Œæ›´æ–°åšå®¢ç±»åˆ«
 	@RequestMapping("/save")
 	public String save(BlogType blogType, HttpServletResponse response)
 			throws Exception {
 
-		int resultTotal = 0; // ½ÓÊÕ·µ»Ø½á¹û¼ÇÂ¼Êı
-		if (blogType.getId() == null) { // ËµÃ÷ÊÇµÚÒ»´Î²åÈë
+		int resultTotal = 0; // æ¥æ”¶è¿”å›ç»“æœè®°å½•æ•°
+		if (blogType.getId() == null) { // è¯´æ˜æ˜¯ç¬¬ä¸€æ¬¡æ’å…¥
 			resultTotal = blogTypeService.addBlogType(blogType);
-		} else { // ÓĞid±íÊ¾ĞŞ¸Ä
+		} else {// æœ‰idè¡¨ç¤ºä¿®æ”¹
 			resultTotal = blogTypeService.updateBlogType(blogType);
 		}
 
@@ -80,7 +80,7 @@ public class BlogTypeAdminController {
 		return null;
 	}
 
-	// ²©¿ÍÀà±ğĞÅÏ¢É¾³ı
+	// åšå®¢ç±»åˆ«ä¿¡æ¯åˆ é™¤
 	@RequestMapping("/delete")
 	public String deleteBlog(
 			@RequestParam(value = "ids", required = false) String ids,
@@ -90,8 +90,8 @@ public class BlogTypeAdminController {
 		JSONObject result = new JSONObject();
 		for (int i = 0; i < idsStr.length; i++) {
 			int id = Integer.parseInt(idsStr[i]);
-			if(blogService.getBlogByTypeId(id) > 0) { //ËµÃ÷¸ÃÀà±ğÖĞÓĞ²©¿Í
-				result.put("exist", "¸ÃÀà±ğÏÂÓĞ²©¿Í£¬²»ÄÜÉ¾³ı!");
+			if(blogService.getBlogByTypeId(id) > 0) { //è¯´æ˜è¯¥ç±»åˆ«ä¸­æœ‰åšå®¢
+				result.put("exist", "è¯¥ç±»åˆ«ä¸‹æœ‰åšå®¢ï¼Œä¸èƒ½åˆ é™¤!!");
 			} else {
 				blogTypeService.deleteBlogType(id);
 			}		

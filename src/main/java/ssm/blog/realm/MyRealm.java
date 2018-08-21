@@ -15,7 +15,7 @@ import ssm.blog.entity.Blogger;
 import ssm.blog.service.BloggerService;
 
 /**
- * @Description ×Ô¶¨Òårealm
+ * @Description è‡ªå®šä¹‰realm
  * @author Ni Shengwu
  *
  */
@@ -25,27 +25,27 @@ public class MyRealm extends AuthorizingRealm {
 	private BloggerService bloggerService;
 
 	/**
-	 * Îªµ±Ç°µÇÂ½µÄÓÃ»§ÊÚÓè½ÇÉ«ºÍÈ¨ÏŞ
+	 * ä¸ºå½“å‰ç™»é™†çš„ç”¨æˆ·æˆäºˆè§’è‰²å’Œæƒé™
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(
 			PrincipalCollection principals) {
-		// Õâ¸ö¸öÈË²©¿ÍÏîÄ¿ÊÇÃ»ÓĞÕâÒ»ÏîµÄ£¬ÒòÎª¾ÍÒ»¸öÓÃ»§
+		// è¿™ä¸ªä¸ªäººåšå®¢é¡¹ç›®æ˜¯æ²¡æœ‰è¿™ä¸€é¡¹çš„ï¼Œå› ä¸ºå°±ä¸€ä¸ªç”¨æˆ·
 		return null;
 	}
 
 	/**
-	 * ¶ÔÇ°µÇÂ½µÄÓÃ»§½øĞĞÉí·İÈÏÖ¤
+	 * å¯¹å‰ç™»é™†çš„ç”¨æˆ·è¿›è¡Œèº«ä»½è®¤è¯
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken token) throws AuthenticationException {
 
-		String username = (String) token.getPrincipal(); // »ñÈ¡ÓÃ»§Ãû
-		Blogger blogger = bloggerService.getByUsername(username); // ¸ù¾İÓÃ»§Ãû´ÓÊı¾İ¿âÖĞ²éÑ¯³ö²©Ö÷ĞÅÏ¢
+		String username = (String) token.getPrincipal(); // è·å–ç”¨æˆ·å
+		Blogger blogger = bloggerService.getByUsername(username); // æ ¹æ®ç”¨æˆ·åä»æ•°æ®åº“ä¸­æŸ¥è¯¢å‡ºåšä¸»ä¿¡æ¯
 
 		if (blogger != null) {
-			SecurityUtils.getSubject().getSession().setAttribute("currentUser", blogger);//°Ñµ±Ç°ÓÃ»§´æµ½sessionÖĞ
+			SecurityUtils.getSubject().getSession().setAttribute("currentUser", blogger);//æŠŠå½“å‰ç”¨æˆ·å­˜åˆ°sessionä¸­
 			AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(
 					blogger.getUsername(), blogger.getPassword(), "MyRealm");
 			return authcInfo;

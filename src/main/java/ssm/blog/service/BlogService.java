@@ -6,7 +6,7 @@ import java.util.Map;
 import ssm.blog.entity.Blog;
 
 /**
- * @Description ²©¿ÍService½Ó¿Ú
+ * @Description åšå®¢Serviceæ¥å£
  * @author Ni Shengwu
  *
  */
@@ -14,30 +14,30 @@ public interface BlogService {
 
 	public List<Blog> getBlogData();
 
-	// ·ÖÒ³²éÑ¯²©¿Í
+	// åˆ†é¡µæŸ¥è¯¢åšå®¢
 	public List<Blog> listBlog(Map<String, Object> map);
 
-	// »ñÈ¡×Ü¼ÇÂ¼Êı
+	// è·å–æ€»è®°å½•æ•°
 	public Long getTotal(Map<String, Object> map);
 
-	// ¸ù¾İid»ñÈ¡²©¿Í
+	// æ ¹æ®idè·å–åšå®¢
 	public Blog findById(Integer id);
 
-	// ¸üĞÂ²©¿ÍĞÅÏ¢
+	// æ›´æ–°åšå®¢ä¿¡æ¯
 	public Integer update(Blog blog);
 
-	// »ñÈ¡ÉÏÒ»Æª²©¿Í
+	// è·å–ä¸Šä¸€ç¯‡åšå®¢
 	public Blog getPrevBlog(Integer id);
 
-	// »ñÈ¡ÏÂÒ»ÆªÒ»Æª²©¿Í
+	// è·å–ä¸‹ä¸€ç¯‡ä¸€ç¯‡åšå®¢
 	public Blog getNextBlog(Integer id);
 
-	// Ìí¼Ó²©¿Í
+	// æ·»åŠ åšå®¢
 	public Integer addBlog(Blog blog);
-	
-	// É¾³ı²©¿ÍĞÅÏ¢
+
+	// åˆ é™¤åšå®¢ä¿¡æ¯
 	public Integer deleteBlog(Integer id);
-	
-	// ¸ù¾İ²©¿ÍÀàĞÍµÄid²éÑ¯¸ÃÀàĞÍÏÂµÄ²©¿ÍÊıÁ¿
+
+	// æ ¹æ®åšå®¢ç±»å‹çš„idæŸ¥è¯¢è¯¥ç±»å‹ä¸‹çš„åšå®¢æ•°é‡
 	public Integer getBlogByTypeId(Integer typeId);
 }

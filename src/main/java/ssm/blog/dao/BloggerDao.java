@@ -1,20 +1,20 @@
-	package ssm.blog.dao;
+package ssm.blog.dao;
 
 import ssm.blog.entity.Blogger;
 
 /**
- * @Description ²©Ö÷dao½Ó¿Ú
+ * @Description åšä¸»daoæ¥å£
  * @author Ni Shengwu
  *
  */
 public interface BloggerDao {
-	
-	//Í¨¹ıÓÃ»§Ãû²éÑ¯²©Ö÷
+
+	//é€šè¿‡ç”¨æˆ·åæŸ¥è¯¢åšä¸»
 	public Blogger getByUsername(String username);
-	
-	//»ñÈ¡²©Ö÷ĞÅÏ¢
+
+	//è·å–åšä¸»ä¿¡æ¯
 	public Blogger getBloggerData();
-	
-	// ¸üĞÂ²©Ö÷¸öÈËĞÅÏ¢
+
+	// æ›´æ–°åšä¸»ä¸ªäººä¿¡æ¯
 	public Integer updateBlogger(Blogger blogger);
 }

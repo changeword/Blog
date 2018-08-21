@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description ×Ö·û´®¹¤¾ßÀà
- * @author 
+ * @Description å­—ç¬¦ä¸²å·¥å…·ç±»
+ * @author
  *
  */
 public class StringUtil {
 
 	/**
-	 * @Description ÅĞ¶ÏÊÇ·ñÊÇ¿Õ
+	 * @Description åˆ¤æ–­æ˜¯å¦æ˜¯ç©º
 	 * @param str
 	 * @return
 	 */
@@ -22,9 +22,9 @@ public class StringUtil {
 			return false;
 		}
 	}
-	
+
 	/**
-	 * @Description ÅĞ¶ÏÊÇ·ñ²»ÊÇ¿Õ
+	 * @Description åˆ¤æ–­æ˜¯å¦ä¸æ˜¯ç©º
 	 * @param str
 	 * @return
 	 */
@@ -35,9 +35,9 @@ public class StringUtil {
 			return false;
 		}
 	}
-	
+
 	/**
-	 * @Description ¸ñÊ½»¯Ä£ºı²éÑ¯
+	 * @Description æ ¼å¼åŒ–æ¨¡ç³ŠæŸ¥è¯¢
 	 * @param str
 	 * @return
 	 */
@@ -48,9 +48,9 @@ public class StringUtil {
 			return null;
 		}
 	}
-	
+
 	/**
-	 * @Description ¹ıÂËµô¼¯ºÏÀïµÄ¿Õ¸ñ
+	 * @Description è¿‡æ»¤æ‰é›†åˆé‡Œçš„ç©ºæ ¼
 	 * @param list
 	 * @return
 	 */

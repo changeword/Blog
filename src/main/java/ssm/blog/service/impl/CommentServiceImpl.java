@@ -12,13 +12,13 @@ import ssm.blog.entity.Comment;
 import ssm.blog.service.CommentService;
 
 /**
- * @Description ÓÃ»§ÆÀÂÛserviceÊµÏÖÀà
+ * @Description ç”¨æˆ·è¯„è®ºserviceå®ç°ç±»
  * @author Ni Shengwu
  *
  */
 @Service("commentService")
 public class CommentServiceImpl implements CommentService {
-	
+
 	@Resource
 	private CommentDao commentDao;
 

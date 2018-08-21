@@ -9,22 +9,22 @@ import ssm.blog.entity.Blogger;
 import ssm.blog.service.BloggerService;
 
 /**
- * @Description ²©Ö÷ServiceÊµÏÖÀà
+ * @Description åšä¸»Serviceå®ç°ç±»
  * @author Ni Shengwu
  *
  */
 @Service("bloggerService")
 public class BloggerServiceImpl implements BloggerService {
-	
+
 	@Resource
 	private BloggerDao bloggerDao;
-	
-	//¸ù¾İÓÃ»§Ãû²éÑ¯²©Ö÷ĞÅÏ¢£¬ÓÃÓÚµÇÂ½
+
+	//æ ¹æ®ç”¨æˆ·åæŸ¥è¯¢åšä¸»ä¿¡æ¯ï¼Œç”¨äºç™»é™†
 	public Blogger getByUsername(String username) {
 		return bloggerDao.getByUsername(username);
 	}
 
-	//»ñÈ¡²©Ö÷ĞÅÏ¢
+	//è·å–åšä¸»ä¿¡æ¯
 	public Blogger getBloggerData() {
 		return bloggerDao.getBloggerData();
 	}

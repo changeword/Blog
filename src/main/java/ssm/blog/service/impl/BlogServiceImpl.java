@@ -12,7 +12,7 @@ import ssm.blog.entity.Blog;
 import ssm.blog.service.BlogService;
 
 /**
- * @Description ²©¿ÍServiceÊµÏÖÀà
+ * @Description åšå®¢Serviceå®ç°ç±»
  * @author Ni Shengwu
  *
  */
@@ -21,7 +21,7 @@ public class BlogServiceImpl implements BlogService {
 
 	@Resource
 	private BlogDao blogDao;
-	
+
 	public List<Blog> getBlogData() {
 
 		return blogDao.getBlogData();

@@ -6,31 +6,31 @@ import java.util.Map;
 import ssm.blog.entity.BlogType;
 
 /**
- * @Description 博客类别dao接口
+ * @Description 鍗氬绫诲埆dao鎺ュ彛
  * @author Ni Shengwu
  *
  */
 public interface BlogTypeDao {
 
-	// 获取博客类别信息
+	// 鑾峰彇鍗氬绫诲埆淇℃伅
 	public List<BlogType> getBlogTypeData();
 
-	// 根据id查找博客类型信息
+	// 鏍规嵁id鏌ユ壘鍗氬绫诲瀷淇℃伅
 	public BlogType findById(Integer id);
 
-	// 分页查询博客类别信息
+	// 鍒嗛〉鏌ヨ鍗氬绫诲埆淇℃伅
 	public List<BlogType> listBlogType(Map<String, Object> map);
-	
-	// 获取总记录数
+
+	// 鑾峰彇鎬昏褰曟暟
 	public Long getTotal(Map<String, Object> map);
-	
-	// 添加博客类别
+
+	// 娣诲姞鍗氬绫诲埆
 	public Integer addBlogType(BlogType blogType);
-	
-	// 更新博客类别
+
+	// 鏇存柊鍗氬绫诲埆
 	public Integer updateBlogType(BlogType blogType);
-	
-	// 删除博客类别
+
+	// 鍒犻櫎鍗氬绫诲埆
 	public Integer deleteBlogType(Integer id);
 
 }

@@ -18,7 +18,7 @@ import ssm.blog.service.CommentService;
 import ssm.blog.util.ResponseUtil;
 
 /**
- * @Description ÆÀÂÛµÄcontroller
+ * @Description è¯„è®ºçš„controller
  * @author Ni Shengwu
  *
  */
@@ -30,35 +30,37 @@ public class CommentController {
 	private CommentService commentService;
 	@Resource
 	private BlogService blogService;
-	
-	//Ìí¼Ó»òÕßĞŞ¸ÄÆÀÂÛ
+
+	//æ·»åŠ æˆ–è€…ä¿®æ”¹è¯„è®º
 	@RequestMapping("/save")
 	public String save(
 			Comment comment, 
-			@RequestParam("imageCode")String imageCode, //Ç°Ì¨´«À´µÄÑéÖ¤Âë
+			@RequestParam("imageCode")String imageCode, //Ç°Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
 			HttpServletRequest request,
 			HttpServletResponse response,
 			HttpSession session) throws Exception {
 		
-		String sRand = (String) session.getAttribute("sRand");//»ñÈ¡sessionÖĞÕıÈ·µÄÑéÖ¤Âë£¬ÑéÖ¤Âë²úÉúºó»á´æµ½sessionÖĞµÄ
+		String sRand = (String) session.getAttribute("sRand");//å‰å°ä¼ æ¥çš„éªŒè¯ç 
+		//è·å–sessionä¸­æ­£ç¡®çš„éªŒè¯ç ï¼ŒéªŒè¯ç äº§ç”Ÿåä¼šå­˜åˆ°sessionä¸­çš„
 		JSONObject result = new JSONObject();
-		int resultTotal = 0; //Ö´ĞĞ¼ÇÂ¼Êı
+		int resultTotal = 0;  //æ‰§è¡Œè®°å½•æ•°
 		if(!imageCode.equals(sRand)) {
 			result.put("success", false);
-			result.put("errorInfo", "ÑéÖ¤ÂëÓĞÎó");
+			result.put("errorInfo", "éªŒè¯ç æœ‰è¯¯");
 		} else {
-			String userIp = request.getRemoteAddr(); //»ñÈ¡ÆÀÂÛÓÃ»§µÄip
-			comment.setUserIp(userIp);  //½«userIpÉèÖÃ½øÈ¥
-			if(comment.getId() == null) { //Ã»ÓĞid±íÊ¾Ìí¼Ó
-				resultTotal = commentService.addComment(comment); //Ìí¼ÓÆÀÂÛ
-				Blog blog = blogService.findById(comment.getBlog().getId()); //¸üĞÂÒ»ÏÂ²©¿ÍµÄÆÀÂÛ´ÎÊı
+			String userIp = request.getRemoteAddr(); //è·å–è¯„è®ºç”¨æˆ·çš„ip
+			comment.setUserIp(userIp);  //å°†userIpè®¾ç½®è¿›å»
+			if(comment.getId() == null) { //æ²¡æœ‰idè¡¨ç¤ºæ·»åŠ 
+				resultTotal = commentService.addComment(comment);//æ·»åŠ è¯„è®º
+				Blog blog = blogService.findById(comment.getBlog().getId());
+				//æ›´æ–°ä¸€ä¸‹åšå®¢çš„è¯„è®ºæ¬¡æ•°
 				blog.setReplyHit(blog.getReplyHit() + 1);
 				blogService.update(blog);
-			} else { //ÓĞid±íÊ¾ĞŞ¸Ä
+			} else { //æœ‰idè¡¨ç¤ºä¿®æ”¹
 				
 			}
-		}		
-		//ÅĞ¶ÏÊÇ·ñÌí¼Ó³É¹¦
+		}
+		//åˆ¤æ–­æ˜¯å¦æ·»åŠ æˆåŠŸ
 		if(resultTotal > 0) {
 			result.put("success", true);
 		}		
