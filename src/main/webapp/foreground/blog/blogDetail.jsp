@@ -12,11 +12,51 @@
 	function showOtherComment() {
 		$(".otherComment").show();
 	}
-	
-	function loadimage(){
+
+    function makeExpandingArea(el) {
+        var setStyle = function(el) {
+            el.style.height = 'auto';
+            el.style.height = el.scrollHeight + 'px';
+            // console.log(el.scrollHeight);
+        }
+        var delayedResize = function(el) {
+            window.setTimeout(function() {
+                    setStyle(el)
+                },
+                0);
+        }
+        if (el.addEventListener) {
+            el.addEventListener('input', function() {
+                setStyle(el)
+            }, false);
+            setStyle(el)
+        } else if (el.attachEvent) {
+            el.attachEvent('onpropertychange', function() {
+                setStyle(el)
+            });
+            setStyle(el)
+        }
+        if (window.VBArray && window.addEventListener) { //IE9
+            el.attachEvent("onkeydown", function() {
+                var key = window.event.keyCode;
+                if (key == 8 || key == 46) delayedResize(el);
+
+            });
+            el.attachEvent("oncut", function() {
+                delayedResize(el);
+            }); //处理粘贴
+        }
+    }
+
+    function loadimage(){
 		document.getElementById("randImage").src="${pageContext.request.contextPath}/image.jsp?"+Math.random();
 	}
-	
+
+	$(function () {
+        loadimage();
+        makeExpandingArea(textarea);
+    })
+
 	function submitData() {
 		var content = $("#content").val();
 		var imageCode = $("#imageCode").val();
@@ -30,7 +70,7 @@
 				{"content":content,"imageCode":imageCode,"blog.id":"${blog.id}"},
 				function(result) {
 					if(result.success) {
-						alert("评论已提交成功，博主审核后添加");
+						alert("评论提交成功");
 						window.location.reload();
 					} else {
 						alert(result.errorInfo);
@@ -81,7 +121,7 @@
 			<font style="color:#8B2323">作者：李攀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尊重博主原创文章，转载请注明文章出于此处。</font>
 		</div>
 		<div class="xian" style="margin:0px auto; border-top:1px solid #ddd"></div>
-		<div class="blog_content">${blog.content }</div>
+		<div><textarea id="textarea" class="blog_content">${blog.content }</textarea></div>
 		<div class="xian" style="margin:0 auto; border-top:1px solid #ddd"></div>
 		<div style="margin-top: 25px;">${pageCode }</div>
 	</div>

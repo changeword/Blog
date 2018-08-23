@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getBloggerData" resultMap="BloggerResult">
-		SELECT * FROM t_blogger WHERE id=1
+		SELECT * FROM t_blogger WHERE id=100001
 	</select>
 	
 	<update id="updateBlogger" parameterType="Blogger">
@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 		imagename=#{imagename},
 		 	</if>
 		</set>
-		where id=1
+		where id=100001
 	</update>
 	
 	

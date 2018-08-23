@@ -64,14 +64,14 @@ public class BlogController {
 		// 查询评论信息
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("blogId", blog.getId());
-		map.put("state", 1);
+		map.put("state", 0);
 		List<Comment> commentList = commentService.getCommentData(map);
 
 		modelAndView.addObject("commentList", commentList);
 		modelAndView.addObject("commonPage", "foreground/blog/blogDetail.jsp");
 		modelAndView.addObject("title", blog.getTitle() + " - 李攀的博客");
 
-		// ������һƪ����һƪ����ʾ����
+
 		modelAndView.addObject("pageCode", PageUtil.getPrevAndNextPageCode(
 				blogService.getPrevBlog(id), blogService.getNextBlog(id),
 				request.getServletContext().getContextPath()));

@@ -123,8 +123,11 @@
 }
 
 .data_list .blog_content{
+	word-break:break-all;
 	margin-top:50px;
 	padding-bottom: 30px;
+	border:none;
+	width:100%;
 }
 
 .data_list .commentDatas{
